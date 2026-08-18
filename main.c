@@ -2,24 +2,31 @@
 #include <stdlib.h>
 #include <windows.h>
 
+void espaco(void){
+printf("===================================================\n");
+return;
+}
 int main()
 {
     int opcao;
 
-    printf("conectando o banco de dados do inventario\n");
+    printf("iniciando o sistema de ferramentas ...\n");
+    printf("\n");
+    Sleep(3000);
+    printf("[*] conectando o banco de dados do inventario\n");
     Sleep(1000);
-    printf("carregando modulo de leitura de QR code\n");
+    printf("[*] carregando modulo de leitura de QR code\n");
     Sleep(1000);
-    printf("verificando status e validade das garantias\n");
+    printf("[*] verificando status e validade das garantias\n");
     Sleep(1000);
-    printf("sincronizando dados...");
+    printf("[*] sincronizando dados...");
     Sleep(1000);
 
     system("cls");
 
-    printf("===================================================\n");
+    espaco();
     printf("           sistema ferralog - INVENTARIO\n");
-    printf("===================================================\n");
+    espaco();
 
     printf("bem-vindo ao controle logistico de ferramentas\n");
 
@@ -28,22 +35,58 @@ int main()
     printf("(2) consultar ferramenta no setor\n");
     printf("(3) verificar status da ferramenta\n");
     printf("(4) sair do sistema\n");
-    printf("===================================================\n");
+    espaco();
 
     printf("digite a opcao desejada: ");
     scanf("%d", &opcao);
 
-    if (opcao == 1){
-        char nome[50];
+    switch (opcao){
 
-        printf("======================================\n");
-        printf("      cadastro de ferramentas\n");
-        printf("======================================\n");
+case 1:
+    system("cls");
+        char nome[50];
+        int codigo;
+        float valor;
+
+        espaco();
+        printf("         cadastro de ferramentas\n");
+        espaco();
 
         printf("nome da ferramenta: ");
-        scanf("%s", &nome);
+        fgets(nome, sizeof(nome), stdin);
+        printf("codigo QR: ");
+        scanf("%d", &codigo);
+        printf("valor: R$");
+        scanf("%f", &valor);
 
-        printf("o nome da ferramenta e: %s\n", nome);
+        system("cls");
+        printf("<< FERRAMENTA CADASTRADA >>\n");
+        printf("nome da ferramenta: %s\n", nome);
+        printf("codigo QR da ferramenta: %d\n", codigo);
+        printf("valor da ferramenta: %.2f\n", valor);
+        break;
+
+case 2:
+    system("cls");
+    espaco();
+    printf("              consultar ferramenta no setor\n");
+    espaco();
+    break;
+
+case 3:
+    system("cls");
+    espaco();
+    printf("              verificar status da ferramenta\n");
+    espaco();
+    break;
+
+case 4:
+     printf("saindo...\n");
+        Sleep(2000);
+        printf("<< VOLTE SEMPRE >>\n");
+
+default:
+    printf("valor invalido\n");
     }
 
     return 0;
