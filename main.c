@@ -1,14 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 void espaco(void){
 printf("===================================================\n");
 return;
 }
+
+struct ferramenta{
+char nome[50];
+int codigo;
+float valor;
+};
+
 int main()
 {
     int opcao = 0;
+    //struct ferramenta ferramenta;
 
         printf("iniciando o sistema de ferramentas ...\n");
         printf("\n");
@@ -24,7 +33,7 @@ int main()
 
         system("cls");
 
-    while (opcao != 4){
+    do {
         espaco();
         printf("           sistema ferralog - INVENTARIO\n");
         espaco();
@@ -46,8 +55,8 @@ int main()
 
     case 1:
         system("cls");
-        char nome[50];
         char continuar;
+        char nome[50];
         int codigo;
         float valor;
 
@@ -88,6 +97,7 @@ int main()
             printf("valor da ferramenta: %.2f\n", valor);
             printf("\n");
 
+            //continuar
             printf("deseja cadastrar mais alguma ferramenta? [s/n] ");
             scanf(" %c", &continuar);
             while(getchar() != '\n');
@@ -104,27 +114,23 @@ int main()
                 system("cls");
                 break;
             }
-        break;
         }
+        break;
 
     case 2:
+        printf("consultar ferramenta no setor em desenvolvimento...\n");
+        Sleep(1000);
         system("cls");
-        espaco();
-        printf("              consultar ferramenta no setor\n");
-        espaco();
-        //system("cls");
         break;
 
     case 3:
+        printf("status da ferramenta em desenvolvimento...\n");
+        Sleep(1000);
         system("cls");
-        espaco();
-        printf("              verificar status da ferramenta\n");
-        espaco();
-        //system("cls");
         break;
 
     case 4:
-        printf("saindo...\n");
+        printf("desconectando do banco de dados...\n");
         Sleep(2000);
         printf("<< VOLTE SEMPRE >>\n");
         break;
@@ -134,6 +140,6 @@ int main()
         system("pause");
         system("cls");
         }
-    }
+    } while (opcao != 4);
     return 0;
 }
